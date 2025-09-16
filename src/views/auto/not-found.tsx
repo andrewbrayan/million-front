@@ -38,7 +38,7 @@ const NotFoundPage: React.FC = () => {
           cualquier caso, intenta usar la navegación.
         </Typography>
         <Button
-          LinkComponent={NavLink}
+          component={NavLink}
           to={"/"}
           startIcon={<ArrowBackIcon fontSize="medium" />}
           variant="contained"

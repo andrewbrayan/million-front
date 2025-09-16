@@ -48,10 +48,19 @@ Este repositorio incluye un `Dockerfile` de producción (Nginx) y un `docker-com
 
 ### 1) Build de imagen directamente con Docker
 
-```
+```bash
 docker build \
   --build-arg VITE_API=http://localhost:5254 \
   --build-arg VITE_MAPBOX_ACCESS_TOKEN="pk.eyJ1IjoiYW5kcmV3YnJheWFuIiwiYSI6ImNsNGVhdThhZDAxcHkzaHBnN3ZkdDJ0aGQifQ.4x_jvsBS14080T1qHi4K3w" \
+  -t million-front:latest .
+
+docker run -p 8080:80 --name million-front --rm million-front:latest
+```
+
+```powershell
+docker build `
+  --build-arg VITE_API=http://localhost:5254 `
+  --build-arg VITE_MAPBOX_ACCESS_TOKEN="pk.eyJ1IjoiYW5kcmV3YnJheWFuIiwiYSI6ImNsNGVhdThhZDAxcHkzaHBnN3ZkdDJ0aGQifQ.4x_jvsBS14080T1qHi4K3w" `
   -t million-front:latest .
 
 docker run -p 8080:80 --name million-front --rm million-front:latest

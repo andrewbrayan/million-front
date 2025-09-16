@@ -5,8 +5,9 @@ WORKDIR /app
 
 # Dependencias
 COPY package.json pnpm-lock.yaml ./
-RUN corepack enable && corepack prepare pnpm@9.12.3 --activate
-RUN pnpm install --frozen-lockfile
+# Habilitar pnpm con corepack; si falla, instalar pnpm global
+RUN corepack enable && corepack prepare pnpm@9.12.3 --activate || npm i -g pnpm@9.12.3
+RUN pnpm --version && pnpm install --frozen-lockfile
 
 # Variables de entorno de build (Vite)
 ARG VITE_API
@@ -24,28 +25,7 @@ RUN pnpm build
 FROM nginx:1.27-alpine AS runner
 
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Config Nginx para SPA (React Router fallback)
-RUN <<'EOF' cat > /etc/nginx/conf.d/default.conf
-server {
-  listen 80;
-  server_name _;
-
-  root   /usr/share/nginx/html;
-  index  index.html;
-
-  location / {
-    try_files $uri /index.html;
-  }
-
-  # Assets con cache
-  location ~* \.(?:js|css|png|jpg|jpeg|gif|svg|ico|woff2?)$ {
-    try_files $uri =404;
-    expires 30d;
-    access_log off;
-  }
-}
-EOF
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

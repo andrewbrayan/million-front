@@ -10,6 +10,7 @@ export const getGeneralResponseForm = (error: ZodError): GeneralResponse => {
   }));
 
   return {
+    status: 400,
     statusCode: 400,
     code: "INVALID_REQUEST",
     message: message,

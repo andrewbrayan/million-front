@@ -1,4 +1,4 @@
-import type { LngLatLike } from "mapbox-gl";
+// (Import eliminado porque no se usa)
 
 export const getUserLocation = (
   options: PositionOptions = {

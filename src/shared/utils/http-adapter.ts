@@ -17,8 +17,9 @@ const httpAdapter = async <R = GeneralResponse, E = GeneralResponse>(
   const newHeaders: AxiosHeaders = AxiosHeaders.from(headers as AxiosHeaders);
   const authorizationHeader = newHeaders.get("Authorization");
   const baseErrorResponse: GeneralResponse = {
-    code: "UNKNOWN_ERROR",
+    status: 500,
     statusCode: 500,
+    code: "UNKNOWN_ERROR",
     success: false,
     content: null,
     message: "An unknown error occurred",
