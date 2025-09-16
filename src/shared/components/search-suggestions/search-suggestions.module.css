@@ -1,0 +1,13 @@
+.suggestions {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions__card {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow: visible !important;
+  z-index: 3;
+}

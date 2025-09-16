@@ -1,0 +1,17 @@
+.toggle[data-mobile="true"] {
+  display: flex;
+}
+
+.toggle[data-mobile="false"] {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .toggle[data-mobile="true"] {
+    display: none;
+  }
+
+  .toggle[data-mobile="false"] {
+    display: flex;
+  }
+}

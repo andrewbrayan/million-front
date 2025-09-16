@@ -1,0 +1,32 @@
+.listCard {
+  display: flex;
+  height: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.listCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.listCard__container {
+  display: flex !important;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.listCard__image {
+  position: relative;
+  width: 100%;
+}
+
+.listCard__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.listCard__divider {
+  margin: 0.5rem 0 !important;
+}

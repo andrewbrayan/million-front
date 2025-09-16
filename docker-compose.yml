@@ -1,0 +1,16 @@
+services:
+  million-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API: ${VITE_API}
+        VITE_MAPBOX_ACCESS_TOKEN: ${VITE_MAPBOX_ACCESS_TOKEN}
+    ports:
+      - "8080:80"
+    environment:
+      # Solo para referencia; las vars reales se usan en build args
+      VITE_API: ${VITE_API}
+      VITE_MAPBOX_ACCESS_TOKEN: ${VITE_MAPBOX_ACCESS_TOKEN}
+    restart: unless-stopped
+

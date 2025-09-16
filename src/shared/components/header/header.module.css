@@ -1,0 +1,33 @@
+.nav {
+  z-index: 10;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 auto;
+}
+
+@media screen and (min-width: 900px) {
+  .nav__menu {
+    display: none;
+  }
+
+  .nav__links {
+    display: flex;
+  }
+}
